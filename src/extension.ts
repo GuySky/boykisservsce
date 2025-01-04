@@ -1,7 +1,6 @@
 import * as vscode from 'vscode';
 
 export function activate(context: vscode.ExtensionContext) {
-    // Создание и регистрация view container для Activity Bar
     vscode.window.createTreeView('myTextInActivityBar', {
         treeDataProvider: new MyTreeDataProvider(),
         showCollapseAll: false
@@ -16,7 +15,6 @@ class MyTreeDataProvider implements vscode.TreeDataProvider<vscode.TreeItem> {
     getChildren(element?: vscode.TreeItem): Thenable<vscode.TreeItem[]> {
         const treeItem = new vscode.TreeItem('Click me <3', vscode.TreeItemCollapsibleState.None);
 
-        // Добавляем команду для отображения текста и ASCII-арта
         treeItem.command = {
             command: 'extension.showTextWithAsciiArt',
             title: 'UwU'
